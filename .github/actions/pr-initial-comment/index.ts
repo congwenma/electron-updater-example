@@ -13,25 +13,14 @@ const github = require('@actions/github');
 
     const client = new github.GitHub(token);
     const commitsInPR = (await client.pulls.listCommits(request)).data;
-    const ticketsList = [];
-
-    if(commitsInPR && commitsInPR.length > 0) {
-      const { commit } = commitsInPR[0];
-      const matchedTickets = commit.message.matchAll(/\[(.*?)\]/g);
-      Array.from(matchedTickets).forEach(match => ticketsList.push(
-        `<a href="https://jira.rallyhealth.com/browse/${match[1]}">${match[1]}</a>`
-      ));
-    }
-
-    const ticketUrls = ticketsList.join(', ');
     const sampleUrl =
-      `<a href="https://d1ecjv0s6ub0t4.cloudfront.net/recover-dashboard/pull/${pullRequestNumber}">Cloudfront</a>`;
+      `<a href="pull/${pullRequestNumber}">pull/${pullRequestNumber}</a>`;
 
     const existingBody = (await (await client.pulls.get(request)).json()).body;
     request['body'] = `${existingBody}
 
-    Jira: ${ticketUrls}
-    Sample: ${sampleUrl}`;
+Jira: ${'abcd'}
+Sample: ${sampleUrl}`;
 
     const response = await client.pulls.update(request);
 
