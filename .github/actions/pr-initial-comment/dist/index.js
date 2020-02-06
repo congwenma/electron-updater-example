@@ -27612,7 +27612,7 @@ const github = __webpack_require__(469);
             const res = yield client.pulls.get(request);
             console.log('***Response', res);
             console.log('***Response.body', res.body);
-            const existingBody = res.body;
+            const existingBody = res.data.body;
             request['body'] = `${existingBody}
 
 Jira: ${'abcd'}

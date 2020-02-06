@@ -18,7 +18,7 @@ const github = require('@actions/github');
     const res = await client.pulls.get(request);
     console.log('***Response', res);
     console.log('***Response.body', res.body);
-    const existingBody = res.body;
+    const existingBody = res.data.body;
     request['body'] = `${existingBody}
 
 Jira: ${'abcd'}
