@@ -1,8 +1,8 @@
 name: "Update pull request"
 
-on: 
+on:
   pull_request:
-    types: [opened]
+    types: [opened, reopened]
 
 jobs:
   initial_comment_job:
