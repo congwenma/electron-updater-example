@@ -27,7 +27,7 @@ const github = require('@actions/github');
     const sampleUrl =
       `<a href="https://d1ecjv0s6ub0t4.cloudfront.net/recover-dashboard/pull/${pullRequestNumber}">Cloudfront</a>`;
 
-    const existingBody = (await client.pulls.get(request)).body;
+    const existingBody = (await (await client.pulls.get(request)).json()).body;
     request['body'] = `${existingBody}
 
     Jira: ${ticketUrls}

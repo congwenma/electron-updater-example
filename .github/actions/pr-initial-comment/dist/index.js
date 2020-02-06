@@ -27617,7 +27617,7 @@ const github = __webpack_require__(469);
             }
             const ticketUrls = ticketsList.join(', ');
             const sampleUrl = `<a href="https://d1ecjv0s6ub0t4.cloudfront.net/recover-dashboard/pull/${pullRequestNumber}">Cloudfront</a>`;
-            const existingBody = (yield client.pulls.get(request)).body;
+            const existingBody = (yield (yield client.pulls.get(request)).json()).body;
             request['body'] = `${existingBody}
 
     Jira: ${ticketUrls}
