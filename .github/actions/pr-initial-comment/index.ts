@@ -12,7 +12,6 @@ const github = require('@actions/github');
     };
 
     const client = new github.GitHub(token);
-    const commitsInPR = (await client.pulls.listCommits(request)).data;
     const sampleUrl =
       `<a href="pull/${pullRequestNumber}">pull/${pullRequestNumber}</a>`;
 
