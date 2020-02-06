@@ -1,7 +1,7 @@
 {
   "name": "github-actions",
   "scripts": {
-    "build": "rm ./pr-initial-comment/dist/index.js && npx ncc build ./pr-initial-comment/index.ts -o ./pr-initial-comment/dist/index.js"
+    "build": "(rm ./pr-initial-comment/dist/index.js || true) && npx ncc build ./pr-initial-comment/index.ts -o ./pr-initial-comment/dist"
   },
   "devDependencies": {
     "@actions/core": "^1.2.1",
