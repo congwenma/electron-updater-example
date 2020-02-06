@@ -1,11 +1,14 @@
 {
   "name": "github-actions",
   "scripts": {
-    "build": "npx ncc build ./pr-initial-comment/index.ts"
+    "build": "rm ./pr-initial-comment/dist/index.js && npx ncc build ./pr-initial-comment/index.ts -o ./pr-initial-comment/dist/index.js"
   },
   "devDependencies": {
     "@actions/core": "^1.2.1",
     "@actions/github": "^2.0.1",
     "@zeit/ncc": "^0.21.0"
+  },
+  "dependencies": {
+    "npx": "^10.2.2"
   }
 }
