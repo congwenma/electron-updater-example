@@ -15,11 +15,16 @@ const github = require('@actions/github');
     const sampleUrl =
       `<a href="pull/${pullRequestNumber}">pull/${pullRequestNumber}</a>`;
 
-    const existingBody = (await (await client.pulls.get(request)).json()).body;
+    const res = await client.pulls.get(request);
+    core.warn('***Response', res);
+    core.warn('***Response.body', res.body);
+    const existingBody = res.body;
     request['body'] = `${existingBody}
 
 Jira: ${'abcd'}
 Sample: ${sampleUrl}`;
+
+    core.warn('***Target.body', request['body']);
 
     const response = await client.pulls.update(request);
 
