@@ -27610,14 +27610,14 @@ const github = __webpack_require__(469);
             const client = new github.GitHub(token);
             const sampleUrl = `<a href="pull/${pullRequestNumber}">pull/${pullRequestNumber}</a>`;
             const res = yield client.pulls.get(request);
-            core.warn('***Response', res);
-            core.warn('***Response.body', res.body);
+            console.log('***Response', res);
+            console.log('***Response.body', res.body);
             const existingBody = res.body;
             request['body'] = `${existingBody}
 
 Jira: ${'abcd'}
 Sample: ${sampleUrl}`;
-            core.warn('***Target.body', request['body']);
+            console.log('***Target.body', request['body']);
             const response = yield client.pulls.update(request);
             if (response.status !== 200) {
                 core.error('Updating the pull request has failed');
