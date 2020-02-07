@@ -1,6 +1,6 @@
 {
   "name": "electron-updater-congwen-ma",
-  "version": "0.7.19",
+  "version": "0.7.20",
   "main": "main.js",
   "description": "electron-updater example project",
   "author": "Matt Haggard",
@@ -28,7 +28,8 @@
       "perMachine": true
     },
     "mac": {
-      "category": "your.app.category.type",
+      "category": "public.app-category.testing",
+      "artifactName": "autoupdater-${version}-app-mac.${ext}",
       "target": [
         "zip",
         "dmg"
