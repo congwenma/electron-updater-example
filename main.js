@@ -1,6 +1,6 @@
 // This is free and unencumbered software released into the public domain.
 // See LICENSE for details
-console.log('***uv 0.7.20')
+console.log('***uv 0.7.21')
 
 const {app, BrowserWindow, Menu, protocol, ipcMain} = require('electron');
 const log = require('electron-log');
