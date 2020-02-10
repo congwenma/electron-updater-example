@@ -7,3 +7,4 @@
 # End of https://www.gitignore.io/api/tpush
 node_modules
 dist
+tmp
